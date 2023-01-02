@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- region Your particular project data -->
+    <groupId>org.getecsa</groupId>
+    <artifactId>getechsaTechTest</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Description of my application</description>
+    <!-- This section (packaging) can be defined if the project is meant to be a desktop application or a JAR will be generated. -->
+    <packaging>jar</packaging>
+    <!--endregion-->
+
+    <properties>
+        <!-- region Configure Java version & Main full package and class name -->
+        <!-- WARNING: add release scope if 1.9 and older versions are used at build/plugins/plugin/[maven-compiler-plugin]/configuration-->
+        <java.version>17</java.version>
+        <!--        <selenium.version>4.7.2</selenium.version>-->
+        <selenium.version>RELEASE</selenium.version>
+        <main.class>org.white_sdev.american_airlines_test.AmericanAirlinesTest</main.class>
+        <logs.path>${project.build.directory}/test-reports/logs</logs.path>
+        <!--endregion-->
+        <!-- region General configurations of the project -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <!-- endregion General configurations of the project -->
+    </properties>
+
+    <dependencies>
+
+        <!-- region Lombok -->
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <type>jar</type>
+        </dependency>
+        <!-- endregion Lombok -->
+
+        <!-- region JCL -->
+        <!-- hooks lombok with the Sl4fj Provider -->
+        <!-- https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>2.0.5</version>
+        </dependency>
+        <!-- endregion JCL -->
+
+        <!-- region Sl4fj Provider -->
+        <!-- https://www.slf4j.org/codes.html#noProviders -->
+        <!-- This is the one Spring uses -->
+        <!-- https://logback.qos.ch/manual/layouts.html -->
+        <!-- this will allow you to use logback-test.xml file -->
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+        <!-- requires slf4j-api & logback-core (Lombok includes it) -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.5</version>
+        </dependency>
+        <!-- endregion SL4fj Provider -->
+
+        <!-- region Testing -->
+
+        <!-- region UnitTesting -->
+
+        <!-- region JUnit5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.9.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- endregion JUnit5 -->
+
+        <!-- region Mockito -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>4.10.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- endregion Mockito -->
+
+        <!-- region UnitTesting Assertions -->
+        <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.23.1</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- endregion UnitTesting Assertions -->
+
+        <!-- endregion UnitTesting -->
+
+        <!-- region Selenium -->
+
+        <!-- region Pure Selenium -->
+
+        <!-- region SeleniumJava -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-api -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <!-- endregion SeleniumJava -->
+
+        <!-- region HtmlUnitDriver -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/htmlunit-driver -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>htmlunit-driver</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <!-- endregion -->
+
+        <!-- region ChromeDriver -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <!-- endregion ChromeDriver -->
+
+        <!-- endregion Pure Selenium -->
+
+        <!-- region bonigarcia -->
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.3.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.seleniumhq.selenium</groupId>
+                    <artifactId>selenium-java</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.seleniumhq.selenium</groupId>
+                    <artifactId>selenium-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.seleniumhq.selenium</groupId>
+                    <artifactId>selenium-chrome-driver</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- endregion bonigarcia -->
+
+        <!-- endregion Selenium -->
+
+        <!-- endregion Testing -->
+
+    </dependencies>
+
+    <build>
+        <resources>
+            <!-- region Logback warning removal-->
+            <!-- this will temporarily remove the warning from  logback not able to found the logback-test.xml file - Remove when in PROD -->
+            <!-- it will also allow logback-test.xml to use this POM properties as variables -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>logback-test.xml</include>
+                </includes>
+            </resource>
+            <!-- endregion -->
+        </resources>
+        <plugins>
+            <!-- region Established the java version defined in the properties' section for every scope (compatible with newer java versions) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <!-- WARNING: add release scope for 1.9 and older versions -->
+                    <release>${java.version}</release>
+                </configuration>
+            </plugin>
+            <!-- endregion -->
+
+            <!-- region Builds an *executable* JAR on package goal -->
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass> ${main.class} </mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <!-- endregion -->
+
+            <!-- region Forces the app to be executed when using `mvn package` -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <mainClass>${main.class}</mainClass>
+                    <!--                    <cleanupDaemonThreads>false</cleanupDaemonThreads>-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- endregion -->
+
+            <!-- region Eliminates some compilation glitches for the IDEs when using lombok -->
+            <!--delete if the glitches are not present-->
+            <!--	    <plugin>-->
+            <!--		<groupId>org.projectlombok</groupId>-->
+            <!--		<artifactId>lombok-maven-plugin</artifactId>-->
+            <!--		<version>1.18.12.0</version>-->
+            <!--		<configuration>-->
+            <!--		    <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>-->
+            <!--		    <outputDirectory>${delombok.output}</outputDirectory>-->
+            <!--		    <addOutputDirectory>false</addOutputDirectory>-->
+            <!--		</configuration>-->
+            <!--		<executions>-->
+            <!--		    <execution>-->
+            <!--			 Generate delomboked code -->
+            <!--			<phase>generate-sources</phase>-->
+            <!--			<goals>-->
+            <!--			    <goal>delombok</goal>-->
+            <!--			</goals>-->
+            <!--		    </execution>-->
+            <!--		</executions>-->
+            <!--	    </plugin>-->
+            <!-- endregion -->
+
+            <!-- region Maven is able to run JUnit5 Tests -->
+            <!-- This requires junit-jupiter-engine [in junit-jupiter] dependency! -->
+            <!-- This will run everything that Starts or ends with Test[(Case)|s]{0-1}. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
+                <executions>
+                    <execution><goals><goal>test</goal></goals></execution>
+                </executions>
+                <configuration>
+                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                    <reportsDirectory>${logs.path}</reportsDirectory>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>3.0.0-M7</version>
+                <configuration>
+                    <showSuccess>false</showSuccess>
+                </configuration>
+            </plugin>
+            <!-- endregion -->
+
+            <!-- region Deletes log directory -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <delete>
+                                    <fileset dir="${logs.path}/" includes="*.log" />
+                                </delete>
+                            </target>
+                        </configuration>
+                    </execution>
+                    <!--                    <execution>-->
+                    <!--                        <phase>test</phase>-->
+                    <!--                        <goals>-->
+                    <!--                            <goal>run</goal>-->
+                    <!--                        </goals>-->
+                    <!--                        <configuration>-->
+                    <!--                            <tasks>-->
+                    <!--                                <delete file="target/test-reports/logs"/>-->
+                    <!--                            </tasks>-->
+                    <!--                        </configuration>-->
+                    <!--                    </execution>-->
+                </executions>
+                <!--                <executions>-->
+                <!--                    <execution>-->
+                <!--                        <phase>test</phase>-->
+                <!--                        <goals>-->
+                <!--                            <goal>run</goal>-->
+                <!--                        </goals>-->
+                <!--                        <configuration>-->
+                <!--                            <tasks>-->
+                <!--                                <delete file="target/test-reports/logs"/>-->
+                <!--                            </tasks>-->
+                <!--                        </configuration>-->
+                <!--                    </execution>-->
+                <!--                </executions>-->
+            </plugin>
+            <!-- endregion Deletes log directory -->
+
+        </plugins>
+
+    </build>
+
+</project>
