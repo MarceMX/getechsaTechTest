@@ -33,7 +33,6 @@ public class AmericanAirlinesTests {
 		driver = (Objects.nonNull(headless) && !headless.isEmpty())?
 				new FirefoxDriver(new FirefoxOptions(){{addArguments("--headless");}}) : new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
-		
 		localUtils = new LocalUtils(driver);
 		driver.get("about:blank");
 	}
@@ -82,7 +81,7 @@ public class AmericanAirlinesTests {
 			flightStatus.enterAndSearchFlightNumber("98675");
 			
 			//This line is set to validate that on error, the exception code works properly
-			//if(((Integer)1).equals(1)) throw new RuntimeException("Forced exception");
+//			if(((Integer)1).equals(1)) throw new RuntimeException("Forced exception");
 			
 			String errorMsg = driver.findElement(By.id("flightNumber.errors")).getText();
 			SoftAssertions softly = new SoftAssertions();
