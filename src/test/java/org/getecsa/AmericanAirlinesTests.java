@@ -7,6 +7,7 @@ import org.getecsa.pages.FlightStatus;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.PageFactory;
@@ -16,6 +17,7 @@ import org.getecsa.pages.HomePage;
 import org.getecsa.utils.LocalUtils;
 
 import java.time.Duration;
+import java.util.Objects;
 
 @Slf4j
 public class AmericanAirlinesTests {
@@ -26,13 +28,12 @@ public class AmericanAirlinesTests {
 	
 	
 	public void configureWebDriver(){
-		String headless = System.getProperty("headless");
-		driver = //(Objects.nonNull(headless) && !headless.isEmpty())?
-				new FirefoxDriver(new FirefoxOptions(){{addArguments("--headless");}})
-//				:
-//				new ChromeDriver()
-		;
+//		String headless = "headless"; //Uncomment this line if you want to execute headless test
+		String headless = ""; //Uncomment this line if you want to execute test with open browser
+		driver = (Objects.nonNull(headless) && !headless.isEmpty())?
+				new FirefoxDriver(new FirefoxOptions(){{addArguments("--headless");}}) : new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
+		
 		localUtils = new LocalUtils(driver);
 		driver.get("about:blank");
 	}
@@ -52,7 +53,6 @@ public class AmericanAirlinesTests {
 		log.trace("{} Closing Browser", logID);
 		driver.quit();
 		localUtils.closeLogFile();
-//		localUtils.discardLogFile(testInfo.getDisplayName()); //doesn't work because logback is still using the file (can't be deleted) even after the tests are done.
 	}
 	
 	@AfterAll
@@ -81,7 +81,8 @@ public class AmericanAirlinesTests {
 			flightStatus = PageFactory.initElements(driver, FlightStatus.class);
 			flightStatus.enterAndSearchFlightNumber("98675");
 			
-			//if(((Integer)1).equals(1)) throw new RuntimeException("Forced exception"); //TODO Delete me
+			//This line is set to validate that on error, the exception code works properly
+			//if(((Integer)1).equals(1)) throw new RuntimeException("Forced exception");
 			
 			String errorMsg = driver.findElement(By.id("flightNumber.errors")).getText();
 			SoftAssertions softly = new SoftAssertions();

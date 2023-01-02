@@ -4,7 +4,7 @@
 ### 1.1) Quick summary
 Version: `0.1-SNAPSHOT`
 
-Detailed description of your app.
+Getecsa technical test.
 
 ### 1.2) Disclosure
 Not associated with American Airlines

@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c73640ec-5729-490c-9a3f-da38e690027f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/getecsa/AmericanAirlinesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/getecsa/AmericanAirlinesTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/getecsa/pages/FlightStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/getecsa/pages/HomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/getecsa/utils/LocalUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/logback-test.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/getecsa/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/getecsa/AmericanAirlinesTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/getecsa/AmericanAirlinesTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,11 +32,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/HP/Documents/GitHub/getecsaTechTest/src/test/java/org/getecsa"
+    "last_opened_file_path": "C:/Users/HP/Documents/GitHub/getecsaTechTest/src/test"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Documents\GitHub\getecsaTechTest\src\test" />
       <recent name="C:\Users\HP\Documents\GitHub\getecsaTechTest\src\test\java\org\getecsa" />
       <recent name="C:\Users\HP\Documents\GitHub\getecsaTechTest\src\main\resources" />
       <recent name="C:\Users\HP\Documents\GitHub\getecsaTechTest" />
@@ -52,7 +47,7 @@
       <recent name="org.getecsa.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RunAll">
+  <component name="RunManager" selected="JUnit.AmericanAirlinesTests">
     <configuration name="AmericanAirlinesTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="getecsaTechTest" />
       <extension name="coverage">

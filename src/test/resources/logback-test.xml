@@ -1,0 +1,64 @@
+<configuration>
+    <property file="src\main\resources\application.properties"/>
+
+
+<!--    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${logging.file.path}/getecsa.log</file>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            &lt;!&ndash; daily rollover &ndash;&gt;-->
+<!--            <fileNamePattern>${logging.file.path}/%d{yyyy/MM}/american-airlines-test.gz</fileNamePattern>-->
+
+<!--            &lt;!&ndash; keep 1 day' worth of history capped at 1GB total size &ndash;&gt;-->
+<!--            <maxHistory>1</maxHistory>-->
+<!--            <totalSizeCap>1GB</totalSizeCap>-->
+<!--        </rollingPolicy>-->
+<!--&lt;!&ndash;        <append>true</append>&ndash;&gt;-->
+<!--        <encoder>-->
+<!--            <pattern>${logging.pattern.file}</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+
+    <appender name="FILE" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <discriminator>
+            <key>id</key>
+            <defaultValue>000000</defaultValue>
+        </discriminator>
+
+        <sift>
+            <appender name="TC-${id}" class="ch.qos.logback.core.FileAppender">
+                <file>${logging.file.path}/${id}.log</file>
+<!--                <file>logs/log_${id}.log</file>-->
+                <maxHistory>0</maxHistory>
+                <append>false</append>
+                <layout class="ch.qos.logback.classic.PatternLayout">
+                    <pattern>${logging.pattern.file}</pattern>
+                </layout>
+            </appender>
+        </sift>
+    </appender>
+
+    <appender name="STDOUT" target="System.out" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${logging.pattern.console}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>TRACE</level>
+        </filter>
+    </appender>
+
+
+<!--    <logger name="org.getecsa" level="TRACE"/>-->
+<!--    <logger name="${application.package}" level="${logging.level.root}" />-->
+    <logger name="${application.package}" level="${logging.level.root}" additivity="false">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </logger>
+
+<!--    <root level="ERROR">-->
+<!--        <appender-ref ref="FILE" />-->
+<!--    </root>-->
+<!--    <root level="ERROR">-->
+<!--        <appender-ref ref="STDOUT" />-->
+<!--    </root>-->
+
+</configuration>
