@@ -28,8 +28,8 @@ public class AmericanAirlinesTests {
 	
 	
 	public void configureWebDriver(){
-//		String headless = "headless"; //Uncomment this line if you want to execute headless test
-		String headless = ""; //Uncomment this line if you want to execute test with open browser
+		String headless = "headless"; //Uncomment this line if you want to execute headless test
+//		String headless = ""; //Uncomment this line if you want to execute test with open browser
 		driver = (Objects.nonNull(headless) && !headless.isEmpty())?
 				new FirefoxDriver(new FirefoxOptions(){{addArguments("--headless");}}) : new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
