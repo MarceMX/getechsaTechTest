@@ -1,0 +1,44 @@
+<!-- Logback-test.xml will take priority over this file -->
+<configuration>
+    <property resource="application.properties" />
+    <property name="APPLICATION_ID" value="${project.artifactId}" />
+    <property name="CONSOLE_PATTERN" value="%d{HH:mm:ss.SSS} %-5level %logger{36}%msg%n" />
+    <property name="FILE_PATTERN" value="%d{HH:mm:ss.SSS} %-5level %logger{90}%msg%n" />
+    <property name="LOG_DIR" value="target/archive-tmp/logs" />
+    <property name="LOG_FILE" value="Application" />
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/${APPLICATION_ID}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${LOG_DIR}/%d{yyyy/MM}/${APPLICATION_ID}.gz</fileNamePattern>
+
+            <!-- keep 30 days' worth of history capped at 3GB total size -->
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+        <append>true</append>
+        <encoder>
+            <pattern>${FILE_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" target="System.out" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_PATTERN}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+    </appender>
+
+    <!--    <logger name="org" level="TRACE"/>-->
+
+    <root level="INFO">
+        <appender-ref ref="FILE" />
+    </root>
+    <root level="TRACE">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>

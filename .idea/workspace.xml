@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c73640ec-5729-490c-9a3f-da38e690027f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/getecsa/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/getecsa/AmericanAirlinesTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/getecsa/AmericanAirlinesTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/getecsa/pages/FlightStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/getecsa/pages/HomePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/getecsa/utils/LocalUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getecsa/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,13 +38,56 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/HP/Documents/GitHub/getecsaTechTest"
+    "last_opened_file_path": "C:/Users/HP/Documents/GitHub/getecsaTechTest/src/test/java/org/getecsa"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Documents\GitHub\getecsaTechTest\src\test\java\org\getecsa" />
+      <recent name="C:\Users\HP\Documents\GitHub\getecsaTechTest\src\main\resources" />
       <recent name="C:\Users\HP\Documents\GitHub\getecsaTechTest" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.getecsa" />
+      <recent name="org.getecsa.utils" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.RunAll">
+    <configuration name="AmericanAirlinesTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="getecsaTechTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.getecsa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.getecsa" />
+      <option name="MAIN_CLASS_NAME" value="org.getecsa.AmericanAirlinesTests" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunAll" type="JUnit" factoryName="JUnit">
+      <module name="getecsaTechTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.RunAll" />
+      <item itemvalue="JUnit.AmericanAirlinesTests" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AmericanAirlinesTests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
